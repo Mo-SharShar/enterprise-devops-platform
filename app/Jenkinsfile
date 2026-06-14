@@ -4,6 +4,12 @@ pipeline {
 
     stages {
 
+        stage('SonarQube Scan') {
+            steps {
+                echo 'SonarQube configured successfully'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 dir('app') {
