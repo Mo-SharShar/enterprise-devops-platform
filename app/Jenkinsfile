@@ -2,10 +2,6 @@ pipeline {
 
     agent any
 
-    tools {
-        sonarQube 'sonar-scanner'
-    }
-
     stages {
 
         stage('SonarQube Scan') {
