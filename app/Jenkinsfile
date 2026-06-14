@@ -2,11 +2,19 @@ pipeline {
 
     agent any
 
+    tools {
+        sonarQube 'sonar-scanner'
+    }
+
     stages {
 
         stage('SonarQube Scan') {
             steps {
-                echo 'SonarQube configured successfully'
+                dir('app') {
+                    withSonarQubeEnv('sonarqube') {
+                        sh 'sonar-scanner'
+                    }
+                }
             }
         }
 
